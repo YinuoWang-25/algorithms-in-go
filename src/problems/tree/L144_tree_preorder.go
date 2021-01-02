@@ -1,4 +1,4 @@
-package problems
+package tree
 
 import (
 	"algorithms-in-go/src/problems/base"
