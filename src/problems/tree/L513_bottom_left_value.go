@@ -15,6 +15,6 @@ func findBottomLeftValueTraverse(root *TreeNode, res *int, level int, counted *i
 		*res = root.Val
 		*counted = *counted + 1
 	}
-	findBottomLeftValueTraverse((*TreeNode)(root.Left), res, level + 1, counted)
-	findBottomLeftValueTraverse((*TreeNode)(root.Right), res, level + 1, counted)
+	findBottomLeftValueTraverse((*TreeNode)(root.Left), res, level+1, counted)
+	findBottomLeftValueTraverse((*TreeNode)(root.Right), res, level+1, counted)
 }

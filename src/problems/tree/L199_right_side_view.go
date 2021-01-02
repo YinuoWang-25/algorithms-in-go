@@ -13,8 +13,6 @@ func rightSideViewTraverse(root *TreeNode, res *[]int, level int) {
 	if level > len(*res) {
 		*res = append(*res, root.Val)
 	}
-	rightSideViewTraverse((*TreeNode)(root.Right), res, level + 1)
-	rightSideViewTraverse((*TreeNode)(root.Left), res, level + 1)
+	rightSideViewTraverse((*TreeNode)(root.Right), res, level+1)
+	rightSideViewTraverse((*TreeNode)(root.Left), res, level+1)
 }
-
-
