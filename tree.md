@@ -45,9 +45,9 @@ They are the same problem
 
 {% page-ref page="all-problems/429.-n-ary-tree-level-order-traversal.md" %}
 
-[314. Binary Tree Vertical Order Traversal](https://www.notion.so/314-Binary-Tree-Vertical-Order-Traversal-c8be31c598ee4ca79cc29aaa5b5ea794)
+{% page-ref page="all-problems/103.-binary-tree-zigzag-level-order-traversal.md" %}
 
-[103. Binary Tree Zigzag Level Order Traversal](https://www.notion.so/103-Binary-Tree-Zigzag-Level-Order-Traversal-eeead35acf4e47c68af816d248ba875b)
+{% page-ref page="all-problems/314.-binary-tree-vertical-order-traversal.md" %}
 
 ### Basic Problems
 
