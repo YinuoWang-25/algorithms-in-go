@@ -1,52 +1,17 @@
 package problems
 
-import "algorithms-in-go/src/stack"
+import (
+	"algorithms-in-go/src/problems/base"
+	"algorithms-in-go/src/stack"
+)
 
-type LinkedNode struct {
-	Val  *TreeNode
-	Next *LinkedNode
-}
+type TreeNode base.TreeNode
 
-type LinkedStack struct {
-	head *LinkedNode
-	size int
-}
+/**
+Iterative Solution
+*/
 
-func (stack *LinkedStack) Push(v *TreeNode) {
-	newHead := &LinkedNode{v, stack.head}
-
-	stack.head = newHead
-
-	stack.size = stack.size + 1
-}
-
-func (stack *LinkedStack) Pop() *TreeNode {
-
-	if stack.size == 0 {
-		panic("empty stack")
-	}
-
-	res := stack.head.Val
-
-	stack.head = stack.head.Next
-
-	stack.size = stack.size - 1
-
-	return res
-}
-
-func (stack *LinkedStack) IsEmpty() bool {
-	return stack.size == 0
-}
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func iterative(root *TreeNode) []int {
-
+func PreorderTraversalI(root *TreeNode) []int {
 	var res []int
 	if root == nil {
 		return res
@@ -74,17 +39,20 @@ func iterative(root *TreeNode) []int {
 	return res
 }
 
-func recursive(root *TreeNode) []int {
+/**
+Recursive Solution
+*/
+func PreorderTraversalII(root *TreeNode) []int {
 	var res []int
-	recursiveHelper(root, &res)
+	preorderTraversalHelper(root, &res)
 	return res
 }
 
-func recursiveHelper(root *TreeNode, res *[]int) {
+func preorderTraversalHelper(root *TreeNode, res *[]int) {
 	if root == nil {
 		return
 	}
 	*res = append(*res, root.Val)
-	recursiveHelper(root.Left, res)
-	recursiveHelper(root.Right, res)
+	preorderTraversalHelper((*TreeNode)(root.Left), res)
+	preorderTraversalHelper((*TreeNode)(root.Right), res)
 }
