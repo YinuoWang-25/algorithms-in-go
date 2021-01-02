@@ -1,5 +1,7 @@
 package problems
 
+import "algorithms-in-go/src/stack"
+
 type LinkedNode struct {
 	Val  *TreeNode
 	Next *LinkedNode
@@ -50,29 +52,29 @@ func iterative(root *TreeNode) []int {
 		return res
 	}
 
-	var stack LinkedStack
-	stack.Push(root)
+	var linkedStack stack.LinkedStack
+
+	linkedStack.Push(root)
 	for {
-		if stack.IsEmpty(){
+		if linkedStack.IsEmpty() {
 			break
 		}
-		cur := stack.Pop()
+		cur := linkedStack.Pop().(*TreeNode)
 		res = append(res, cur.Val)
 
 		if cur.Right != nil {
-			stack.Push(cur.Right)
+			linkedStack.Push(cur.Right)
 		}
 
 		if cur.Left != nil {
-			stack.Push(cur.Left)
+			linkedStack.Push(cur.Left)
 		}
 
 	}
 	return res
 }
 
-
-func recursive(root *TreeNode) []int{
+func recursive(root *TreeNode) []int {
 	var res []int
 	recursiveHelper(root, &res)
 	return res
@@ -83,6 +85,6 @@ func recursiveHelper(root *TreeNode, res *[]int) {
 		return
 	}
 	*res = append(*res, root.Val)
-	recursiveHelper(root.Left,res)
-	recursiveHelper(root.Right,res)
+	recursiveHelper(root.Left, res)
+	recursiveHelper(root.Right, res)
 }

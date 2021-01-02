@@ -3,7 +3,7 @@ package stack
 import "sync"
 
 type LinkedNode struct {
-	Val  int
+	Val  interface{}
 	Next *LinkedNode
 }
 
@@ -13,7 +13,7 @@ type LinkedStack struct {
 	lock sync.RWMutex
 }
 
-func (stack *LinkedStack) Push(v int) {
+func (stack *LinkedStack) Push(v interface{}) {
 	stack.lock.Lock()
 	defer stack.lock.Unlock()
 
@@ -24,7 +24,7 @@ func (stack *LinkedStack) Push(v int) {
 	stack.size = stack.size + 1
 }
 
-func (stack *LinkedStack) Pop() int {
+func (stack *LinkedStack) Pop() interface{} {
 	stack.lock.Lock()
 	defer stack.lock.Unlock()
 
@@ -36,10 +36,12 @@ func (stack *LinkedStack) Pop() int {
 
 	stack.head = stack.head.Next
 
+	stack.size = stack.size - 1
+
 	return res
 }
 
-func (stack *LinkedStack) Peek() int {
+func (stack *LinkedStack) Peek() interface{} {
 	if stack.size == 0 {
 		panic("empty stack")
 	}
