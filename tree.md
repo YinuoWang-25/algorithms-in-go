@@ -51,17 +51,17 @@ They are the same problem
 
 ### Basic Problems
 
-[100. Same Tree](https://www.notion.so/100-Same-Tree-cf5aeb14014c4fada0492b58de9a1961)
+#### Check nodes two by two
 
-1. Symmetric Tree
+{% page-ref page="all-problems/100.-same-tree.md" %}
 
-这两道题都是比较两棵树对应节点是否相同。 recursive的方法很好做
+{% page-ref page="all-problems/101.-symmetric-tree.md" %}
 
-iterative 思路： 每次把两个要比较的node一起放到queue 中
+#### Others
 
-1. Invert Binary Tree
+{% page-ref page="all-problems/226.-invert-binary-tree.md" %}
 
-同样使用一个deque来保存node，每一个node左右子树互换，然后处理下一层
+
 
 1. Balanced Binary Tree
 
