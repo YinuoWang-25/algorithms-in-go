@@ -2,7 +2,7 @@ package linkedlist
 
 import "algorithms-in-go/src/problems/base"
 
-func reorderList(head *ListNode)  {
+func reorderList(head *ListNode) {
 	if head == nil {
 		return
 	}
